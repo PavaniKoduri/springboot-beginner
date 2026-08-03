@@ -61,4 +61,13 @@ public class UserController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/random")
+    public ResponseEntity<User> myRandomUser() {
+        User temp = userService.myrandomUser();
+        if (temp != null) {
+            return ResponseEntity.ok(temp);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }

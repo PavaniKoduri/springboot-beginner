@@ -60,4 +60,13 @@ public class UserService {
         }
         return false;
     }
+
+    public User myrandomUser() {
+        if (allUsers.size() == 0) {
+            return null;
+        }
+        Random rand = new Random();
+        int randomId = rand.nextInt(allUsers.size());
+        return allUsers.get(randomId);
+    }
 }

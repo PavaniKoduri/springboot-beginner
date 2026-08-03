@@ -26,7 +26,7 @@ function toggleUser(){
 }
 
 function randomUser(){
-    console.log("function called");
+    // console.log("function called");
     fetch("https://randomuser.me/api")
         .then(function(res){
             return res.json();
@@ -44,4 +44,24 @@ function randomUser(){
         .catch(function(err){
             console.log(err);
         })
+}
+function myRandomUser(){
+    fetch("/api/users/random")
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(data){
+            var userImage = document.getElementById("user-image");
+            var userName = document.getElementById("user-name");
+            var userGender = document.getElementById("user-gender");
+
+            userImage.src = data.image;
+            userName.innerHTML = data.name;
+            userGender.innerHTML = data.gender;
+
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+
 }
